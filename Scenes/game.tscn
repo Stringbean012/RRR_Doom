@@ -2,12 +2,27 @@
 
 [ext_resource type="Script" uid="uid://b1dxrxc4iiqp6" path="res://Scripts/player.gd" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://d1ghcnalhpy1m" path="res://Scenes/map.tscn" id="2_wrm1d"]
+[ext_resource type="Shader" uid="uid://bvg82jb2w6aqy" path="res://Scripts/pixelify.gdshader" id="3_wrm1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrkdg"]
+shader = ExtResource("3_wrm1d")
+shader_parameter/res = Vector2(320, 200)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrkdg"]
 radius = 21.535156
 height = 77.05029
 
 [node name="Game" type="Node3D" unique_id=1510476190]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1958235334]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1586044571]
+material = SubResource("ShaderMaterial_yrkdg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=297780539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -471.91913, -188.22894)
