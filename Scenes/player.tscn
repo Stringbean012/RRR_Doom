@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvsdra7rebw3w"]
+
+[ext_resource type="Script" uid="uid://b1dxrxc4iiqp6" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrkdg"]
+radius = 21.535156
+height = 43.41382
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qxrlw"]
+length = 20.0
+slide_on_slope = true
+
+[node name="Player" type="CharacterBody3D" unique_id=141850528]
+script = ExtResource("1_v0iea")
+SPEED = 200
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1905936851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8115845, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=378177664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17175293, 0)
+shape = SubResource("CapsuleShape3D_yrkdg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1745733768]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -21.51709, 0)
+shape = SubResource("SeparationRayShape3D_qxrlw")
