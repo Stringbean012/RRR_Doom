@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform vec2 res = vec2(156, 117);
+uniform vec2 res = vec2(320, 200);
 uniform sampler2D melt_texture: repeat_disable, filter_nearest;
 uniform int offsets[160];
 uniform bool melting = false;
