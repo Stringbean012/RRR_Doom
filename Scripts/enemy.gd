@@ -102,6 +102,7 @@ func _chase(delta: float) -> void:
 
 	var next_pos := nav.get_next_path_position()
 	var dir := global_position.direction_to(next_pos)
+	print("dir = " + str(nav.get_next_path_position()))
 	dir.y = 0.0
 	dir = dir.normalized()
 

@@ -4,13 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://ce24n1y7gflef" path="res://Slash.png" id="2_0nu70"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yrkdg"]
-radius = 46.36599
+radius = 0.463
 
 [node name="Slash" type="Area3D" unique_id=1099577639 groups=["PlayerHurtbox"]]
 script = ExtResource("1_b1hai")
-SPEED = 25.0
+SPEED = 0.25
+OFFSET = 0.6
+RANDOM_OFFSET = 0.1
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1391289016]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 pixel_size = 1.165
 texture = ExtResource("2_0nu70")
 

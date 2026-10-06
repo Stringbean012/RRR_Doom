@@ -1,26 +1,27 @@
 [gd_scene format=3 uid="uid://dvsdra7rebw3w"]
 
 [ext_resource type="Script" uid="uid://b1dxrxc4iiqp6" path="res://Scripts/player.gd" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://cyl08b512fekr" path="res://Scenes/camera_3d.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://cyl08b512fekr" path="res://Scripts/camera_3d.gd" id="2_cvnsp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrkdg"]
-radius = 21.535156
-height = 43.41382
+radius = 0.26416016
+height = 0.546875
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qxrlw"]
-length = 20.0
+length = 0.2
 slide_on_slope = true
 
 [node name="Player" type="CharacterBody3D" unique_id=141850528]
 script = ExtResource("1_v0iea")
 RUN_SPEED = 600
 SPEED = 200
-CAMERA_Y_NORMAL = 20.0
-CAMERA_Y_SLITHER = -20.0
+CAMERA_Y_NORMAL = 0.15
+CAMERA_Y_SLITHER = -0.1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1905936851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8115845, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29619628, 0)
 script = ExtResource("2_cvnsp")
+BOB_AMOUNT = 0.05
 BOB_TIME = 0.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=378177664]
@@ -28,5 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17175293, 0)
 shape = SubResource("CapsuleShape3D_yrkdg")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1745733768]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -21.51709, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.070574135, 0)
 shape = SubResource("SeparationRayShape3D_qxrlw")

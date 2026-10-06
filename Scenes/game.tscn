@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://ctcypfakks5sq" path="res://Scripts/armor.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://dugu68cmyafx2" path="res://Scenes/enemy.tscn" id="11_o5yvi"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_yrkdg"]
+geometry_parsed_geometry_type = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
 atlas = ExtResource("5_v158k")
 region = Rect2(0, 0, 30, 26)
@@ -142,12 +145,18 @@ animations = [{
 
 [node name="Game" type="Node3D" unique_id=1510476190]
 
-[node name="Player" parent="." unique_id=141850528 instance=ExtResource("1_qxrlw")]
+[node name="Player" parent="." unique_id=141850528 groups=["player"] instance=ExtResource("1_qxrlw")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -471.91913, -188.22894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.050375, -1.8644345)
+RUN_SPEED = 6
+SPEED = 2
+GRAVITY_MULTIPLIER = 1.0
 
 [node name="Map" parent="." unique_id=1800503625 instance=ExtResource("2_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2126.9102, -444.04532, 2982.7888)
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 18.942291, -23.563232, 32.84082)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=899306688]
+navigation_mesh = SubResource("NavigationMesh_yrkdg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=812435541]
 
@@ -229,4 +238,4 @@ text = "PAUSE: Esc
 Restart: R"
 
 [node name="ENEMY" parent="." unique_id=536152737 instance=ExtResource("11_o5yvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.603546, -500.04565, -522.4242)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.3883362, -23.06207, -2.398075)
