@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dvsdra7rebw3w"]
 
 [ext_resource type="Script" uid="uid://b1dxrxc4iiqp6" path="res://Scripts/player.gd" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://cyl08b512fekr" path="res://Scenes/camera_3d.gd" id="2_cvnsp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrkdg"]
 radius = 21.535156
@@ -15,13 +14,9 @@ slide_on_slope = true
 script = ExtResource("1_v0iea")
 RUN_SPEED = 600
 SPEED = 200
-CAMERA_Y_NORMAL = 20.0
-CAMERA_Y_SLITHER = -20.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1905936851]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8115845, 0)
-script = ExtResource("2_cvnsp")
-BOB_TIME = 0.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=378177664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17175293, 0)

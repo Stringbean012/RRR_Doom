@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dvsdra7rebw3w" path="res://Scenes/player.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://d1ghcnalhpy1m" path="res://Scenes/map.tscn" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://jtd5n3e7ujkc" path="res://Scenes/StatusBar.webp" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://ce24n1y7gflef" path="res://Slash.png" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://bapu4myxk77ik" path="res://Scripts/slash.gd" id="4_wowpa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yrkdg"]
+radius = 46.36599
 
 [node name="Game" type="Node3D" unique_id=1510476190]
 
@@ -23,3 +28,15 @@ offset_top = -191.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_wrm1d")
+
+[node name="Slash" type="Area3D" parent="." unique_id=971290033 groups=["PlayerHurtbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -434.49866, -462.25354)
+script = ExtResource("4_wowpa")
+SPEED = 25.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Slash" unique_id=51771726]
+pixel_size = 1.165
+texture = ExtResource("4_3dryh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slash" unique_id=467276012]
+shape = SubResource("SphereShape3D_yrkdg")
