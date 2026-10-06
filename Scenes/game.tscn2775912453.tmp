@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dsiwti32t7ahr"]
+
+[ext_resource type="Script" uid="uid://b6worvgqngyw4" path="res://Scripts/post_processing.gd" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://b1dxrxc4iiqp6" path="res://Scripts/player.gd" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://d1ghcnalhpy1m" path="res://Scenes/map.tscn" id="2_wrm1d"]
+[ext_resource type="Shader" uid="uid://bvg82jb2w6aqy" path="res://Scripts/pixelify.gdshader" id="3_wrm1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrkdg"]
+shader = ExtResource("3_wrm1d")
+shader_parameter/res = Vector2(320, 200)
+shader_parameter/offsets = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/melting = false
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrkdg"]
+radius = 21.535156
+height = 77.05029
+
+[node name="Game" type="Node3D" unique_id=1510476190]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1958235334]
+
+[node name="PostProcessing" type="ColorRect" parent="CanvasLayer" unique_id=1586044571]
+material = SubResource("ShaderMaterial_yrkdg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3dryh")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=297780539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -471.91913, -188.22894)
+script = ExtResource("2_qxrlw")
+SPEED = 100.0
+JUMP_VELOCITY = 500.0
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=862048248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.254883, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1702499124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.98999, 0)
+shape = SubResource("CapsuleShape3D_yrkdg")
+
+[node name="Map" parent="." unique_id=1800503625 instance=ExtResource("2_wrm1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2126.9102, -444.04532, 2982.7888)
