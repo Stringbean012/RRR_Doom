@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dugu68cmyafx2"]
+
+[ext_resource type="Script" uid="uid://lixidam38bh1" path="res://Scripts/enemy.gd" id="1_hghv2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07688"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ep7j7"]
+radius = 1.6461225
+
+[node name="ENEMY" type="CharacterBody3D" unique_id=536152737]
+script = ExtResource("1_hghv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=329268074]
+shape = SubResource("CapsuleShape3D_07688")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1230568772]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2026294127]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=402548378]
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1754360035]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=415464406]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=155006281]
+shape = SubResource("SphereShape3D_ep7j7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
