@@ -1,9 +1,9 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform vec2 res = vec2(320, 200);
+uniform vec2 res = vec2(360, 167.5);
 uniform sampler2D melt_texture: repeat_disable, filter_nearest;
-uniform int offsets[160];
+uniform int offsets[180];	//Change size to res.x / 2
 uniform bool melting = false;
 
 void fragment() {

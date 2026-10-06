@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jtd5n3e7ujkc"
-path="res://.godot/imported/StatusBar.webp-38f08f39f43e0674f778440dac71133c.ctex"
+uid="uid://b2pm8gstv1cup"
+path="res://.godot/imported/Status Bar.png-1cf23d47dd4d2dad5fd3bb8234f630f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/StatusBar.webp"
-dest_files=["res://.godot/imported/StatusBar.webp-38f08f39f43e0674f778440dac71133c.ctex"]
+source_file="res://Status Bar.png"
+dest_files=["res://.godot/imported/Status Bar.png-1cf23d47dd4d2dad5fd3bb8234f630f1.ctex"]
 
 [params]
 

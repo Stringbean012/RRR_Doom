@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 
@@ -7,17 +8,34 @@ extends CharacterBody3D
 @export var GRAVITY_MULTIPLIER = 100.0
 @export var CAMERA_Y_NORMAL = 1.81
 @export var CAMERA_Y_SLITHER = 0.0
-@onready var camera: PlayerCamera = $Camera3D
+@export var ATTACK_COOLDOWN = 0.5
 
+@onready var camera: PlayerCamera = $Camera3D
+const SLASH = preload("uid://bha02dsli3xjo")
+var attack_direction = 1
+var can_attack: bool = true
+var time_since_last_attack: float
 var strafing: bool
 var running: bool
+var attack_anim: bool
+var health = 100
+var armor = 0
 
 func _process(delta: float) -> void:
 	strafing = Input.is_action_pressed("strafe")
 	running = Input.is_action_pressed("run")
 	camera.tween_y(CAMERA_Y_SLITHER if running else  CAMERA_Y_NORMAL)
+<<<<<<< HEAD
+	if Input.is_action_just_pressed("attack") and can_attack and not running:
+		attack()
+	
+	time_since_last_attack += delta
+	
+		
+=======
 
 
+>>>>>>> 30920787c46cac0d1508f74dd4437c54dde1aaa1
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -50,3 +68,28 @@ func _physics_process(delta: float) -> void:
 			rotate_y(-input_dir.x * TURN_SPEED * delta)
 
 	move_and_slide()
+
+func attack():
+	attack_animation()
+	var slash: Slash = SLASH.instantiate()
+	slash.global_basis.z = global_transform.basis.z
+	slash.global_position = global_position
+	get_tree().root.add_child(slash)
+	attack_direction *= -1
+	slash.global_basis = global_basis
+	slash.apply_offset(attack_direction)
+	
+	#allow comboing 2 attacks at once
+	if time_since_last_attack < ATTACK_COOLDOWN:
+		apply_cooldown()
+	time_since_last_attack = 0
+	
+func apply_cooldown():
+	can_attack = false
+	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
+	can_attack = true
+
+func attack_animation():
+	attack_anim = true
+	await get_tree().create_timer(0.5).timeout
+	attack_anim = false

@@ -5,36 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b2pm8gstv1cup" path="res://Status Bar.png" id="3_wrm1d"]
 [ext_resource type="FontFile" uid="uid://cyux1nkwgyqty" path="res://rainyhearts.ttf" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://bnyg5gl6qldxm" path="res://SB_Walk.png" id="5_i6g32"]
-[ext_resource type="Texture2D" uid="uid://ws8kldcq021i" path="res://SB_Attack.png" id="5_v158k"]
 [ext_resource type="Texture2D" uid="uid://b3jsi0w5cvh6" path="res://SB_Slither.png" id="6_1l0tm"]
 [ext_resource type="Script" uid="uid://lk5ebjxcixkh" path="res://Scripts/SB_Animation.gd" id="7_1l0tm"]
-[ext_resource type="Script" uid="uid://cl623bjp0bkbf" path="res://Scripts/health.gd" id="9_h4fw4"]
-[ext_resource type="Script" uid="uid://ctcypfakks5sq" path="res://Scripts/armor.gd" id="10_ldgsr"]
-[ext_resource type="PackedScene" uid="uid://dugu68cmyafx2" path="res://Scenes/enemy.tscn" id="11_o5yvi"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
-atlas = ExtResource("5_v158k")
-region = Rect2(0, 0, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
-atlas = ExtResource("5_v158k")
-region = Rect2(30, 0, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
-atlas = ExtResource("5_v158k")
-region = Rect2(60, 0, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7nbq1"]
-atlas = ExtResource("5_v158k")
-region = Rect2(90, 0, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
-atlas = ExtResource("5_v158k")
-region = Rect2(120, 0, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
-atlas = ExtResource("5_v158k")
-region = Rect2(150, 0, 30, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v158k"]
 atlas = ExtResource("5_i6g32")
@@ -76,29 +48,6 @@ region = Rect2(112, 0, 28, 26)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ewbju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85qyi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iivbl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7nbq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_exi56")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7t8sx")
-}],
-"loop": 1,
-"name": &"attack",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_v158k")
 }],
 "loop": 1,
@@ -117,7 +66,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"slither",
-"speed": 12.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -137,7 +86,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 12.0
+"speed": 5.0
 }]
 
 [node name="Game" type="Node3D" unique_id=1510476190]
@@ -161,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_wrm1d")
 
-[node name="Ammo" type="Label" parent="CanvasLayer" unique_id=850136639]
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=850136639]
 offset_left = 513.0
 offset_top = 861.0
 offset_right = 571.0
@@ -171,16 +120,16 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_3dryh")
 theme_override_font_sizes/font_size = 128
 text = "8"
-horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1247334184]
-position = Vector2(901.99994, 902)
+position = Vector2(882.09235, 902.3)
 scale = Vector2(5.2846155, 5.2846155)
 sprite_frames = SubResource("SpriteFrames_yrkdg")
 animation = &"walk"
+frame_progress = 0.6547076
 script = ExtResource("7_1l0tm")
 
-[node name="Health" type="Label" parent="CanvasLayer" unique_id=1145375390]
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1145375390]
 offset_left = 562.0
 offset_top = 827.0
 offset_right = 802.0
@@ -189,44 +138,3 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_3dryh")
 theme_override_font_sizes/font_size = 128
 text = "100%"
-horizontal_alignment = 1
-script = ExtResource("9_h4fw4")
-
-[node name="Armor" type="Label" parent="CanvasLayer" unique_id=506698608]
-offset_left = 1013.0
-offset_top = 827.0
-offset_right = 1253.0
-offset_bottom = 947.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_3dryh")
-theme_override_font_sizes/font_size = 128
-text = "0%"
-horizontal_alignment = 1
-script = ExtResource("10_ldgsr")
-
-[node name="Controls" type="Label" parent="CanvasLayer" unique_id=1982209080]
-offset_left = 4.0
-offset_top = 814.0
-offset_right = 323.0
-offset_bottom = 991.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_3dryh")
-theme_override_font_sizes/font_size = 44
-text = "MOVE: Arrow Keys
-SHOOT: Ctrl
-RUN: Shift
-STRAFE: Alt"
-
-[node name="Controls2" type="Label" parent="CanvasLayer" unique_id=1007159040]
-offset_left = 1271.0
-offset_top = 814.0
-offset_right = 1590.0
-offset_bottom = 991.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_3dryh")
-theme_override_font_sizes/font_size = 44
-text = "PAUSE: Esc
-Restart: R"
-
-[node name="ENEMY" parent="." unique_id=536152737 instance=ExtResource("11_o5yvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.603546, -500.04565, -522.4242)

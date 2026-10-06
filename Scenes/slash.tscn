@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bha02dsli3xjo"]
+
+[ext_resource type="Script" uid="uid://bapu4myxk77ik" path="res://Scripts/slash.gd" id="1_b1hai"]
+[ext_resource type="Texture2D" uid="uid://ce24n1y7gflef" path="res://Slash.png" id="2_0nu70"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yrkdg"]
+radius = 46.36599
+
+[node name="Slash" type="Area3D" unique_id=1099577639 groups=["PlayerHurtbox"]]
+script = ExtResource("1_b1hai")
+SPEED = 25.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1391289016]
+pixel_size = 1.165
+texture = ExtResource("2_0nu70")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=7309304]
+shape = SubResource("SphereShape3D_yrkdg")
